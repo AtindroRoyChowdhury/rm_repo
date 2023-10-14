@@ -1,0 +1,13 @@
+where meltano
+cd <the path>
+meltano init trial
+cd trial
+meltano add extractor tap-mysql
+--config using 
+meltano config tap-mysql set --interactive
+
+meltano add loader target-jsonl
+--config using 
+meltano config target-jsonl set --interactive
+
+meltano run tap-mysql target-jsonl
